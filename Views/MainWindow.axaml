@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Niceify.Views.MainWindow"
+        Title="Niceify"
+        Width="400" Height="350"
+        CanResize="False">
+
+    <StackPanel Margin="20" Spacing="12">
+        <TextBlock Text="Niceify Settings" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+    
+        <StackPanel>
+            <TextBlock Text="Tone:"/>
+            <ComboBox ItemsSource="{Binding Tones}" SelectedItem="{Binding SelectedTone}" />
+        </StackPanel>
+
+        <StackPanel>
+            <TextBlock Text="Custom Prompt:"/>
+            <TextBox Text="{Binding CustomPrompt}" AcceptsReturn="True" Height="60"/>
+        </StackPanel>
+
+        <CheckBox Content="Send Enter After Paste"
+                  IsChecked="{Binding SendEnter}" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="Save" Command="{Binding SaveCommand}" />
+            <Button Content="Close" Click="OnCloseClick" />
+        </StackPanel>
+    </StackPanel>
+</Window>
